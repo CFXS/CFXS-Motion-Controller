@@ -1,0 +1,77 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type": "shell",
+            "command": "ninja",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "options": {
+                "cwd": "${workspaceRoot}/build"
+            },
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": [
+                    "relative",
+                    "${workspaceRoot}/build"
+                ]
+            }
+        },
+        {
+            "label": "Generate License Headers",
+            "type": "shell",
+            "command": "py",
+            "args": [
+                "${workspaceRoot}/CFXS_Motion_Controller/vendor/LicenseGen/UpdateHeaders_GPLv3.py",
+                "${workspaceRoot}/CFXS_Motion_Controller/src",
+                "${workspaceRoot}/CFXS_Motion_Controller/_License.lhg"
+            ],
+            "dependsOn": [
+                "GLH_CFXS-Base",
+            ],
+            "group": "test"
+        },
+        {
+            "label": "GLH_CFXS-Base",
+            "type": "shell",
+            "command": "py",
+            "args": [
+                "${workspaceRoot}/CFXS_Motion_Controller/vendor/LicenseGen/UpdateHeaders_GPLv3.py",
+                "${workspaceRoot}/CFXS_Motion_Controller/vendor/CFXS-Base",
+                "${workspaceRoot}/CFXS_Motion_Controller/vendor/CFXS-Base/_License.lhg"
+            ],
+            "dependsOn": [
+                "GLH_CFXS-HW",
+            ],
+            "group": "test"
+        },
+        {
+            "label": "GLH_CFXS-HW",
+            "type": "shell",
+            "command": "py",
+            "args": [
+                "${workspaceRoot}/CFXS_Motion_Controller/vendor/LicenseGen/UpdateHeaders_GPLv3.py",
+                "${workspaceRoot}/CFXS_Motion_Controller/vendor/CFXS-HW",
+                "${workspaceRoot}/CFXS_Motion_Controller/vendor/CFXS-HW/_License.lhg"
+            ],
+            "dependsOn": [
+                "GLH_CFXS-CNC"
+            ],
+            "group": "test"
+        },
+        {
+            "label": "GLH_CFXS-CNC",
+            "type": "shell",
+            "command": "py",
+            "args": [
+                "${workspaceRoot}/CFXS_Motion_Controller/vendor/LicenseGen/UpdateHeaders_GPLv3.py",
+                "${workspaceRoot}/CFXS_Motion_Controller/vendor/CFXS-CNC",
+                "${workspaceRoot}/CFXS_Motion_Controller/vendor/CFXS-CNC/_License.lhg"
+            ],
+            "group": "test"
+        }
+    ]
+}

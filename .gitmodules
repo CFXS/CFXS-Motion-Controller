@@ -22,3 +22,6 @@
 	path = CFXS_Motion_Controller/vendor/SeggerRTT-printf
 	url = https://github.com/CFXS/SeggerRTT-printf.git
 	branch = master
+[submodule "CFXS_Motion_Controller/vendor/LicenseGen"]
+	path = CFXS_Motion_Controller/vendor/LicenseGen
+	url = https://github.com/CFXS/CFXS-License-Header-Generator.git

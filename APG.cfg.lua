@@ -12,6 +12,7 @@ return {
         "CFXS-Base",
         "CFXS-HW",
         "CFXS-CNC",
+        "LicenseGen",
         "tm4c-driverlib",
         "SeggerRTT"
     },
