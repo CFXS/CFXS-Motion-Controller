@@ -25,3 +25,6 @@
 [submodule "CFXS_Motion_Controller/vendor/LicenseGen"]
 	path = CFXS_Motion_Controller/vendor/LicenseGen
 	url = https://github.com/CFXS/CFXS-License-Header-Generator.git
+[submodule "CFXS_Motion_Controller/vendor/CFXS-Platform"]
+	path = CFXS_Motion_Controller/vendor/CFXS-Platform
+	url = https://github.com/CFXS/CFXS-Platform.git

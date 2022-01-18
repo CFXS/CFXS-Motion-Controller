@@ -46,7 +46,6 @@ extern void (*const __FINI_ARRAY_END__[])(void);
 __weak __used void __cfxs_entry_point() {
     extern int main();
     main();
-    __asm__("bkpt");
 }
 
 /////////////////////////////////////////////////////////////
@@ -63,7 +62,7 @@ static __interrupt void __isr_Default(void) {
     __asm__("bkpt");
 }
 
-static __interrupt void __Reset() {
+static __interrupt __noreturn void __Reset() {
     CFXS::CPU::DisableInterrupts();
 
     // Enable FPU
@@ -98,6 +97,12 @@ static __interrupt void __Reset() {
     }
 
     __cfxs_entry_point();
+
+    __asm__("bkpt");
+
+    HWREG(NVIC_APINT) = NVIC_APINT_VECTKEY | NVIC_APINT_SYSRESETREQ;
+    while (1 < 2) {
+    }
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////
