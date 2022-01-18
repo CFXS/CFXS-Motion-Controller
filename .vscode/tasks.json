@@ -71,6 +71,20 @@
                 "${workspaceRoot}/CFXS_Motion_Controller/vendor/CFXS-CNC",
                 "${workspaceRoot}/CFXS_Motion_Controller/vendor/CFXS-CNC/_License.lhg"
             ],
+            "dependsOn": [
+                "GLH_CFXS-Platform"
+            ],
+            "group": "test"
+        },
+        {
+            "label": "GLH_CFXS-Platform",
+            "type": "shell",
+            "command": "py",
+            "args": [
+                "${workspaceRoot}/CFXS_Motion_Controller/vendor/LicenseGen/UpdateHeaders_GPLv3.py",
+                "${workspaceRoot}/CFXS_Motion_Controller/vendor/CFXS-Platform",
+                "${workspaceRoot}/CFXS_Motion_Controller/vendor/CFXS-Platform/_License.lhg"
+            ],
             "group": "test"
         }
     ]

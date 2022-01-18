@@ -2,6 +2,7 @@
 add_compile_definitions("PART_TM4C1294NCPDT")
 add_compile_definitions("TARGET_IS_TM4C129_RA2")
 add_compile_definitions("CFXS_PLATFORM_TM4C")
+add_compile_definitions("CFXS_DEVICE_CLASS_TM4C129X")
 add_compile_definitions("CFXS_CPU_CLOCK_FREQUENCY=120000000")
 
 # Project
