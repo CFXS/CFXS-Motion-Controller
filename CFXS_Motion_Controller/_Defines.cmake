@@ -6,6 +6,9 @@ add_compile_definitions("CFXS_CPU_CLOCK_FREQUENCY=120000000")
 
 # Project
 
+add_compile_definitions("CFXS_PROJECT_NAME=\"CFXS Motion Controller\"")
+add_compile_definitions("CFXS_PROJECT_VERSION_STRING=\"1.0.0-dev\"")
+
 if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
     add_compile_definitions("DEBUG")
 endif()
