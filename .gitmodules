@@ -1,0 +1,24 @@
+[submodule "CMake"]
+	path = CMake
+	url = https://github.com/CFXS/CFXS-CMake-Bare-Metal-Toolchain.git
+	branch = master
+[submodule "CFXS_Motion_Controller/vendor/CFXS-Base"]
+	path = CFXS_Motion_Controller/vendor/CFXS-Base
+	url = https://github.com/CFXS/CFXS-Base.git
+	branch = master
+[submodule "CFXS_Motion_Controller/vendor/CFXS-HW"]
+	path = CFXS_Motion_Controller/vendor/CFXS-HW
+	url = https://github.com/CFXS/CFXS-HW.git
+	branch = master
+[submodule "CFXS_Motion_Controller/vendor/CFXS-CNC"]
+	path = CFXS_Motion_Controller/vendor/CFXS-CNC
+	url = https://github.com/CFXS/CFXS-CNC.git
+	branch = master
+[submodule "CFXS_Motion_Controller/vendor/tm4c-driverlib"]
+	path = CFXS_Motion_Controller/vendor/tm4c-driverlib
+	url = https://github.com/CFXS/tm4c-driverlib.git
+	branch = master
+[submodule "CFXS_Motion_Controller/vendor/SeggerRTT-printf"]
+	path = CFXS_Motion_Controller/vendor/SeggerRTT-printf
+	url = https://github.com/CFXS/SeggerRTT-printf.git
+	branch = master
