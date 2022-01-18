@@ -44,6 +44,13 @@ SECTIONS
         . = ALIGN(4);
         __TEXT_END__ = .;
     } > FLASH
+    
+    PROVIDE_HIDDEN(__exidx_start = .);
+    .ARM.exidx :
+    {
+      *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+    } > FLASH
+    PROVIDE_HIDDEN(__exidx_end = .);
 
     .data : AT(ADDR(.text) + SIZEOF(.text))
     {
@@ -53,13 +60,6 @@ SECTIONS
         *(.data .data* .gnu.linkonce.d.*)
         __DATA_END__ = .;
     } > SRAM
-    
-    PROVIDE_HIDDEN(__exidx_start = .);
-    .ARM.exidx :
-    {
-      *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-    } > SRAM
-    PROVIDE_HIDDEN(__exidx_end = .);
     
     .bss (NOLOAD):
     {

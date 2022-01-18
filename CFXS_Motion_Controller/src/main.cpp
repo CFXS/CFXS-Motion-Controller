@@ -17,7 +17,7 @@
 // ---------------------------------------------------------------------
 // [CFXS] //
 int main() {
-    printf("[%s Version %s]\n", CFXS_PROJECT_NAME, CFXS_PROJECT_VERSION_STRING);
+    printf("[%s v%s]\n", CFXS_PROJECT_NAME, CFXS_PROJECT_VERSION_STRING);
 
     while (1 < 2) {
     }

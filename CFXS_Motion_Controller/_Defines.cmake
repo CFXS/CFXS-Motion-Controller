@@ -10,6 +10,8 @@ add_compile_definitions("CFXS_CPU_CLOCK_FREQUENCY=120000000")
 add_compile_definitions("CFXS_PROJECT_NAME=\"CFXS Motion Controller\"")
 add_compile_definitions("CFXS_PROJECT_VERSION_STRING=\"1.0.0-dev\"")
 
+add_compile_definitions("SEGGER_DONT_REDEFINE_PRINTF") # custom printf lib, dont let segger redirect directly
+
 if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
     add_compile_definitions("DEBUG")
 endif()
