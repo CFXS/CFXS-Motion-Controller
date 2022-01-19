@@ -3,6 +3,7 @@ add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/vendor/CFXS-Base")
 target_link_libraries(${EXE_NAME} PUBLIC CFXS_Base)
 
 # CFXS-Platform
+set(CFXS_STARTUP_PLATFORM "TM4C129X") # this is for startup file selection
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/vendor/CFXS-Platform")
 target_include_directories(CFXS_Platform PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/vendor/CFXS-Base/include")
 target_include_directories(CFXS_Platform PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/vendor/tm4c-driverlib")

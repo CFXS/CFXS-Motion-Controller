@@ -14,6 +14,8 @@ add_compile_definitions("SEGGER_DONT_REDEFINE_PRINTF") # custom printf lib, dont
 
 if("${CMAKE_BUILD_TYPE}" STREQUAL "Debug")
     add_compile_definitions("DEBUG")
+    add_compile_definitions("CFXS_DEBUG")
+    add_compile_definitions("CFXS_DEBUG_ASSERT")
 endif()
 
 if("${CMAKE_BUILD_TYPE}" STREQUAL "Release")
