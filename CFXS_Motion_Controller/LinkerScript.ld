@@ -46,13 +46,14 @@ SECTIONS
     } > FLASH
     
     PROVIDE_HIDDEN(__exidx_start = .);
-    .ARM.exidx :
+    .ARM.exidx : AT(ADDR(.text) + SIZEOF(.text))
     {
-      *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+        . = ALIGN(4);
+        *(.ARM.exidx* .gnu.linkonce.armexidx.*)
     } > FLASH
     PROVIDE_HIDDEN(__exidx_end = .);
 
-    .data : AT(ADDR(.text) + SIZEOF(.text))
+    .data : AT(ADDR(.ARM.exidx) + SIZEOF(.ARM.exidx))
     {
         . = ALIGN(4);
         __DATA_START__ = .;
