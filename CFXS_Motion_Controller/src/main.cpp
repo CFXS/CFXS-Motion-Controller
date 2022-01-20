@@ -20,10 +20,26 @@
 #include <CFXS/CNC/G_Man.hpp>
 #include <new>
 
+static const char* s_TestData = R"(
+F400
+)";
+
 int main() {
     CFXS_printf("[%s v%s]\n", CFXS_PROJECT_NAME, CFXS_PROJECT_VERSION_STRING);
 
-    while (1 < 2) {
+    char temp[sizeof(CFXS::CNC::G_Man)];
+    auto gman = new (temp) CFXS::CNC::G_Man;
+
+    auto dataLen = strlen(s_TestData);
+    auto dataPtr = s_TestData;
+    for (int i = 0; i < dataLen; i += 13) {
+        gman->ProcessCommandDataBlock(dataPtr, 13);
+        dataPtr += 13;
     }
+    auto remainder = dataLen % 13;
+    if (remainder) {
+        gman->ProcessCommandDataBlock(dataPtr, remainder);
+    }
+
     return 0;
 }
