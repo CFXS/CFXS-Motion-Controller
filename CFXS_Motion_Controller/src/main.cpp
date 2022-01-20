@@ -20,9 +20,10 @@
 #include <CFXS/CNC/G_Man.hpp>
 #include <memory>
 
-static const char* s_TestData = R"(
-F400
-)";
+static const char* s_TestData[] = {
+    "F400",
+    "M02",
+};
 
 volatile int __used test = 1337;
 
@@ -31,14 +32,8 @@ void main() {
 
     auto gman = std::make_unique<CFXS::CNC::G_Man>();
 
-    auto dataLen = strlen(s_TestData);
-    auto dataPtr = s_TestData;
-    for (int i = 0; i < dataLen; i += 13) {
-        gman->ProcessCommandDataBlock(dataPtr, 13);
-        dataPtr += 13;
-    }
-    auto remainder = dataLen % 13;
-    if (remainder) {
-        gman->ProcessCommandDataBlock(dataPtr, remainder);
+    for (auto line : s_TestData) {
+        auto stat = gman->ProcessCommand(line, strlen(line));
+        printf(" - %s\n", CFXS::ToString(stat));
     }
 }
