@@ -53,6 +53,7 @@ SECTIONS
     } > FLASH
     PROVIDE_HIDDEN(__exidx_end = .);
 
+    __CONST_INIT_DATA_BASE__ = .;
     .data : AT(ADDR(.ARM.exidx) + SIZEOF(.ARM.exidx))
     {
         . = ALIGN(4);

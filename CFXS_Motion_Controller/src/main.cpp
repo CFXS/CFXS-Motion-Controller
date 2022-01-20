@@ -18,17 +18,18 @@
 // [CFXS] //
 #include <CFXS/Base/Debug.hpp>
 #include <CFXS/CNC/G_Man.hpp>
-#include <new>
+#include <memory>
 
 static const char* s_TestData = R"(
 F400
 )";
 
-int main() {
+volatile int __used test = 1337;
+
+void main() {
     CFXS_printf("[%s v%s]\n", CFXS_PROJECT_NAME, CFXS_PROJECT_VERSION_STRING);
 
-    char temp[sizeof(CFXS::CNC::G_Man)];
-    auto gman = new (temp) CFXS::CNC::G_Man;
+    auto gman = std::make_unique<CFXS::CNC::G_Man>();
 
     auto dataLen = strlen(s_TestData);
     auto dataPtr = s_TestData;
@@ -40,6 +41,4 @@ int main() {
     if (remainder) {
         gman->ProcessCommandDataBlock(dataPtr, remainder);
     }
-
-    return 0;
 }
