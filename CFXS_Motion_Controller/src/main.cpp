@@ -21,11 +21,9 @@
 #include <memory>
 
 static const char* s_TestData[] = {
-    "F400",
+    "G1 F400",
     "M02",
 };
-
-volatile int __used test = 1337;
 
 void main() {
     CFXS_printf("[%s v%s]\n", CFXS_PROJECT_NAME, CFXS_PROJECT_VERSION_STRING);

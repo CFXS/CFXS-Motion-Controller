@@ -77,4 +77,4 @@ set_target_properties(${EXE_NAME} PROPERTIES SUFFIX ".elf")
 add_custom_command(TARGET ${EXE_NAME} POST_BUILD
     COMMAND ${OBJCOPY} -S -O binary ${CMAKE_CURRENT_SOURCE_DIR}/../build/${EXE_NAME}/${EXE_NAME}.elf ${CMAKE_CURRENT_SOURCE_DIR}/../build/${EXE_NAME}.bin)
 add_custom_command(TARGET ${EXE_NAME} POST_BUILD
-    COMMAND ${NM} -l --print-size --size-sort --format=bsd --radix=x ${CMAKE_CURRENT_SOURCE_DIR}/../build/${EXE_NAME}/${EXE_NAME}.elf > ${CMAKE_CURRENT_SOURCE_DIR}/../build/${EXE_NAME}_Symbols.txt)
+    COMMAND ${NM} -C -l --print-size --size-sort --format=bsd --radix=x ${CMAKE_CURRENT_SOURCE_DIR}/../build/${EXE_NAME}/${EXE_NAME}.elf > ${CMAKE_CURRENT_SOURCE_DIR}/../build/${EXE_NAME}_Symbols.txt)
