@@ -27,7 +27,8 @@
 void main() {
     CFXS_printf("[%s v%s]\n", CFXS_PROJECT_NAME, CFXS_PROJECT_VERSION_STRING);
 
-    auto testHeap = CFXS::MemoryManager::CreateHeap("Test Heap 1", 1024 * 16);
+    uint8_t tempStackHeap[1024];
+    auto testHeap = CFXS::MemoryManager::CreateHeap("Test Heap 1", sizeof(tempStackHeap), tempStackHeap);
 
     auto gman = testHeap->New<CFXS::CNC::G_Man>();
 
