@@ -12,7 +12,6 @@ SECTIONS
 
     .text :
     {
-        . = ALIGN(4);
         _text = .;
         __TEXT_START__ = .;
         KEEP(*(.vector_table))
@@ -60,11 +59,11 @@ SECTIONS
     __CONST_INIT_DATA_START__ = .;
     .data : AT(ADDR(.ARM.exidx) + SIZEOF(.ARM.exidx))
     {
-        . = ALIGN(4);
+        . = ALIGN(4) + 0x200; /*0x200 RAM remapped vector table*/
         __DATA_START__ = .;
-        *(vtable)
         *(.data .data* .gnu.linkonce.d.*)
         __DATA_END__ = .;
+        *(.noinit .noinit*)
     } > SRAM
     
     .bss (NOLOAD):

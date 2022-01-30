@@ -62,6 +62,7 @@ target_precompile_headers(
     <stdlib.h>
     <stdbool.h>
     <string.h>
+    <new>
 )
 
 target_link_options(
@@ -69,7 +70,7 @@ target_link_options(
     PRIVATE
     ${CPU_OPTIONS}
     SHELL:-T${LINKER_SCRIPT}
-    -Xlinker -Map=output.map
+    -Wl,-Map=output.map,--cref
 )
 
 set_target_properties(${EXE_NAME} PROPERTIES SUFFIX ".elf")
