@@ -3,6 +3,10 @@ file(GLOB_RECURSE sources CONFIGURE_DEPENDS
   "src/*.cc"
   "src/*.cpp"
   "src/*.cxx"
+  "res/*.c"
+  "res/*.cc"
+  "res/*.cpp"
+  "res/*.cxx"
 )
 
 file(GLOB_RECURSE headers CONFIGURE_DEPENDS

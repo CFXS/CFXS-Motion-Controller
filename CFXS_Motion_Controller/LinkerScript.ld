@@ -1,9 +1,12 @@
+STACK_SIZE = 8K;
+
 MEMORY
 {
     FLASH (rx) : ORIGIN = 0x00000000, LENGTH = 0x00100000
     SRAM (rwx) : ORIGIN = 0x20000000, LENGTH = 0x00040000
 }
 
+ENTRY(__cfxs_reset)
 SECTIONS
 {
 
@@ -11,6 +14,7 @@ SECTIONS
     {
         . = ALIGN(4);
         _text = .;
+        __TEXT_START__ = .;
         KEEP(*(.vector_table))
         *(.text .text* .gnu.linkonce.t.*)
         *(.glue_7t) *(.glue_7)
@@ -53,7 +57,7 @@ SECTIONS
     } > FLASH
     PROVIDE_HIDDEN(__exidx_end = .);
 
-    __CONST_INIT_DATA_BASE__ = .;
+    __CONST_INIT_DATA_START__ = .;
     .data : AT(ADDR(.ARM.exidx) + SIZEOF(.ARM.exidx))
     {
         . = ALIGN(4);
@@ -67,12 +71,10 @@ SECTIONS
     {
         . = ALIGN(4);
         __BSS_START__ = .;
-        ___BSS_START___start__ = __BSS_START__;
         *(.bss*)
         *(COMMON)
         . = ALIGN(4); 
         __BSS_END__ = .;
-        ___BSS_START___end__ = __BSS_END__;
         . = ALIGN(8);
     } > SRAM
     
@@ -80,8 +82,12 @@ SECTIONS
     _end = . ;
 }
 
-/* end of allocated ram is start of heap, heap grows up towards stack*/
 PROVIDE(end = _end);
+
+/* end of allocated ram is start of heap, heap grows up towards stack*/
+PROVIDE(__HEAP_BASE__ = _end);
+PROVIDE(__HEAP_END__ = ORIGIN(SRAM) + LENGTH(SRAM) - STACK_SIZE);
 
 /* top of stack starts at end of ram, stack grows down towards heap */
 PROVIDE(__STACK_BASE__ = ORIGIN(SRAM) + LENGTH(SRAM));
+PROVIDE(__STACK_END__  = ORIGIN(SRAM) + LENGTH(SRAM) - STACK_SIZE);
