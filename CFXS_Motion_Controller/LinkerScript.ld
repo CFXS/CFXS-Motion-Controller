@@ -84,9 +84,9 @@ SECTIONS
 PROVIDE(end = _end);
 
 /* end of allocated ram is start of heap, heap grows up towards stack*/
-PROVIDE(__HEAP_BASE__ = _end);
+PROVIDE(__HEAP_START__ = _end);
 PROVIDE(__HEAP_END__ = ORIGIN(SRAM) + LENGTH(SRAM) - STACK_SIZE);
 
 /* top of stack starts at end of ram, stack grows down towards heap */
-PROVIDE(__STACK_BASE__ = ORIGIN(SRAM) + LENGTH(SRAM));
+PROVIDE(__STACK_START__ = ORIGIN(SRAM) + LENGTH(SRAM));
 PROVIDE(__STACK_END__  = ORIGIN(SRAM) + LENGTH(SRAM) - STACK_SIZE);
