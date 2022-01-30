@@ -72,7 +72,7 @@ void main() {
             }
 
             auto stat = gman->ProcessCommand(lineTemp, strlen(lineTemp));
-            printf(" - %s\n", CFXS::ToString(stat));
+            CFXS_printf(" - %s\n", CFXS::ToString(stat));
         }
     }
 
