@@ -7,8 +7,6 @@ set(LINKER_SCRIPT "\"${CMAKE_CURRENT_SOURCE_DIR}/LinkerScript.ld\"")
 Target_CortexM4F(${EXE_NAME})
 
 set(VENDOR_DIR ${PROJECT_SOURCE_DIR}/${EXE_NAME}/vendor)
- 
-message(${CPU_OPTIONS})
 
 add_compile_options(
     ${CPU_OPTIONS}

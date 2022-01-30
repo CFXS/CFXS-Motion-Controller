@@ -4,6 +4,7 @@
         "*.qrc": "xml",
         "cstdio": "cpp",
         "typeinfo": "cpp",
-        "array": "cpp"
+        "array": "cpp",
+        "new": "cpp"
     }
 }
