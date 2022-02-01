@@ -12,6 +12,7 @@ target_link_libraries(${EXE_NAME} PUBLIC CFXS_Platform)
 # CFXS-HW
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/vendor/CFXS-HW")
 target_include_directories(CFXS_HW PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/vendor/CFXS-Base/include")
+target_include_directories(CFXS_HW PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/vendor/CFXS-Platform/include")
 target_include_directories(CFXS_HW PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/vendor/tm4c-driverlib")
 target_link_libraries(${EXE_NAME} PUBLIC CFXS_HW)
 
