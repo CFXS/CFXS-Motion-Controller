@@ -1,6 +1,9 @@
 include("${PROJECT_SOURCE_DIR}/CMake/Target/CortexM4F.cmake")
 include("_Sources.cmake")
 
+# TODO: test "-mslow-flash-data"
+# TODO: test usage of "-ftracer" for debugging (functions take longer to execute (or longer call?), might be useful for PC sampling profiler)
+
 set(EXE_NAME CFXS_Motion_Controller)
 
 set(LINKER_SCRIPT "\"${CMAKE_CURRENT_SOURCE_DIR}/LinkerScript.ld\"")
@@ -46,7 +49,7 @@ add_compile_options(
     $<$<COMPILE_LANGUAGE:CXX>:-Wno-register>
     $<$<COMPILE_LANGUAGE:CXX>:-fpermissive>
     
-    $<$<CONFIG:Release>:-flto>
+    $<$<CONFIG:Release>:-flto=auto>
 )
 
 add_executable(${EXE_NAME} ${sources} ${headers})
@@ -66,8 +69,6 @@ target_precompile_headers(
     <string.h>
     <new>
 )
-
-
 
 target_link_options(
     ${EXE_NAME}
