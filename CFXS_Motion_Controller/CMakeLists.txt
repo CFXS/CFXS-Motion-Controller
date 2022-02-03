@@ -46,7 +46,7 @@ add_compile_options(
     $<$<COMPILE_LANGUAGE:CXX>:-Wno-register>
     $<$<COMPILE_LANGUAGE:CXX>:-fpermissive>
     
-    -fdebug-prefix-map="${CMAKE_SOURCE_DIR}"=.
+    $<$<CONFIG:Release>:-flto>
 )
 
 add_executable(${EXE_NAME} ${sources} ${headers})
@@ -67,12 +67,16 @@ target_precompile_headers(
     <new>
 )
 
+
+
 target_link_options(
     ${EXE_NAME}
     PRIVATE
     ${CPU_OPTIONS}
     SHELL:-T${LINKER_SCRIPT}
     -Wl,-Map=output.map,--cref
+    
+    $<$<CONFIG:Release>:-flto>
 )
 
 set_target_properties(${EXE_NAME} PROPERTIES SUFFIX ".elf")

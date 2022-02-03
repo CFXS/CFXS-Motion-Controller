@@ -32,8 +32,6 @@ void main() {
     uint8_t tempStackHeap[1024];
     auto testHeap = CFXS::MemoryManager::CreateHeap("Test Heap 1", sizeof(tempStackHeap), tempStackHeap);
 
-    return;
-
     auto gman = testHeap->New<CFXS::CNC::G_Man>();
 
     const char* testData = reinterpret_cast<const char*>(res_TestData);
@@ -81,4 +79,6 @@ void main() {
     }
 
     testHeap->Delete(gman);
+
+    asm volatile("bkpt 1");
 }
