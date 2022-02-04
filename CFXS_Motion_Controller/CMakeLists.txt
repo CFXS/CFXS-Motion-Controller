@@ -49,7 +49,7 @@ add_compile_options(
     $<$<COMPILE_LANGUAGE:CXX>:-Wno-register>
     $<$<COMPILE_LANGUAGE:CXX>:-fpermissive>
     
-    $<$<CONFIG:Release>:-flto=auto>
+    #$<$<CONFIG:Release>:-flto=auto>
 )
 
 add_executable(${EXE_NAME} ${sources} ${headers})
@@ -77,7 +77,7 @@ target_link_options(
     SHELL:-T${LINKER_SCRIPT}
     -Wl,-Map=output.map,--cref
     
-    $<$<CONFIG:Release>:-flto>
+    #$<$<CONFIG:Release>:-flto>
 )
 
 set_target_properties(${EXE_NAME} PROPERTIES SUFFIX ".elf")
