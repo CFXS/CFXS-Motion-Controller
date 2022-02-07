@@ -24,11 +24,10 @@
 #include <CFXS/Platform/CPU.hpp>
 #include <CFXS/Platform/Heap/MemoryManager.hpp>
 
+#include <vector>
+#include <exception>
+
 void main() {
-    CFXS_printf("[%s v%s]\n", CFXS_PROJECT_NAME, CFXS_PROJECT_VERSION_STRING);
-
-    CFXS_printf("MPU Regions: %u\n", CFXS::CPU::Registers::MPU::MPU_TYPE->DREGION);
-
     uint8_t tempStackHeap[1024];
     auto testHeap = CFXS::MemoryManager::CreateHeap("Test Heap 1", sizeof(tempStackHeap), tempStackHeap);
 
