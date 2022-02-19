@@ -60,7 +60,6 @@ void main() {
             lineIndex++;
             lineTemp[chidx] = 0;
 
-            // clean up \r
             auto len = strlen(lineTemp);
             for (int i = 0; i < len; i++) {
                 if (lineTemp[i] == '\r') {
