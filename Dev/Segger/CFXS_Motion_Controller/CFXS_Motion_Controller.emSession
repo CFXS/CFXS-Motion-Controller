@@ -52,7 +52,8 @@
  </TraceWindow>
  <Watch1>
   <Watches active="1" update="Twice a Second">
-   <Watchpoint expression="sres" name="sres" radix="-1" linenumber="0" filename="../CFXS_Motion_Controller"/>
+   <Watchpoint expression="ms" name="ms" radix="-1" linenumber="0" filename="../CFXS_Motion_Controller"/>
+   <Watchpoint expression="s_Loops" name="s_Loops" radix="-1" linenumber="0" filename=""/>
   </Watches>
  </Watch1>
  <Watch2>
@@ -65,7 +66,7 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="93" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/src/main.cpp" selected="1" top="68" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="39" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/src/main.cpp" selected="1" top="17" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="124" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/vendor/CFXS-Platform/private/Startup/TM4C129X.cpp" selected="0" top="109" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="33" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/vendor/CFXS-Platform/include/CFXS/Platform/_CPU/TM4C.hpp" selected="0" top="10" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="5" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/vendor/CFXS-Platform/src/Common.cpp" selected="0" top="0" codecName="Default"/>

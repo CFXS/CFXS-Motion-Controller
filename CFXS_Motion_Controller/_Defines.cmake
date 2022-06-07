@@ -12,6 +12,8 @@ add_compile_definitions("CFXS_PROJECT_VERSION_STRING=\"1.0.0-dev\"")
 
 add_compile_definitions(
     "SEGGER_DONT_REDEFINE_PRINTF" # custom printf lib, dont let segger redirect directly
+    "SEGGER_RTT_MODE_DEFAULT=SEGGER_RTT_MODE_NO_BLOCK_SKIP"
+    #"SEGGER_RTT_MODE_DEFAULT=SEGGER_RTT_MODE_BLOCK_IF_FIFO_FULL"
     "CFXS_DEBUG_TERMINAL_USE_COLORS=1"
 ) 
 

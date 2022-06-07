@@ -2,8 +2,8 @@ STACK_SIZE = 8K;
 
 MEMORY
 {
-    FLASH (rx) : ORIGIN = 0x00000000, LENGTH = 0x00100000
-    SRAM (rwx) : ORIGIN = 0x20000000, LENGTH = 0x00040000
+    FLASH (rx) : ORIGIN = 0x00000000, LENGTH = 1M
+    SRAM (rwx) : ORIGIN = 0x20000000, LENGTH = 256K
 }
 
 ENTRY(__cfxs_reset)
@@ -45,30 +45,29 @@ SECTIONS
         __FINI_ARRAY_END__ = .;
 
         . = ALIGN(4);
+        
+        PROVIDE_HIDDEN(__exidx_start = .);
+        *(.ARM.exidx* .gnu.linkonce.armexidx.*)
+        PROVIDE_HIDDEN(__exidx_end = .);
+
+        . = ALIGN(4);
         __TEXT_END__ = .;
     } > FLASH
     
-    PROVIDE_HIDDEN(__exidx_start = .);
-    .ARM.exidx : AT(ADDR(.text) + SIZEOF(.text))
-    {
-        . = ALIGN(4);
-        *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-    } > FLASH
-    PROVIDE_HIDDEN(__exidx_end = .);
 
     __CONST_INIT_DATA_START__ = .;
-    .data : AT(ADDR(.ARM.exidx) + SIZEOF(.ARM.exidx))
+    .data : AT(ADDR(.text) + SIZEOF(.text))
     {
-        . = ALIGN(4) + 0x200; /*0x200 RAM remapped vector table*/
         __DATA_START__ = .;
-        *(.data .data* .gnu.linkonce.d.*)
+        *(vtable)
+        *(.data .data* .ram .ram* .gnu.linkonce.d.*)
         __DATA_END__ = .;
-        *(.noinit .noinit*)
     } > SRAM
     
     .bss (NOLOAD):
     {
         . = ALIGN(4);
+        *(.noinit .noinit*)
         __BSS_START__ = .;
         *(.bss*)
         *(COMMON)

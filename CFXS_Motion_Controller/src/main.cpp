@@ -33,6 +33,8 @@ namespace CFXS::Time {
     volatile Time_t ms = 0;
 }
 
+__used volatile uint64_t s_Loops = 0;
+
 void main() {
     uint8_t tempStackHeap[1024];
     auto testHeap = CFXS::MemoryManager::CreateHeap("Test Heap 1", sizeof(tempStackHeap), tempStackHeap);
@@ -40,9 +42,10 @@ void main() {
     SysTickIntRegister([]() {
         CFXS::Time::ms++;
     });
-    SysTickPeriodSet(CFXS::CPU::GetCyclesPerMicrosecond());
+    SysTickPeriodSet(CFXS::CPU::GetCyclesPerMillisecond());
     SysTickIntEnable();
     SysTickEnable();
+    CFXS::CPU::EnableInterrupts();
 
     auto gman = testHeap->New<CFXS::CNC::G_Man>();
 
@@ -91,5 +94,7 @@ void main() {
 
     testHeap->Delete(gman);
 
-    asm volatile("bkpt 1");
+    while (1 < 2) {
+        s_Loops++;
+    }
 }
