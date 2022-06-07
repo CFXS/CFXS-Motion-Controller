@@ -18,18 +18,31 @@
 // [CFXS] //
 #include <memory>
 #include <driverlib/sysctl.h>
+#include <driverlib/systick.h>
 #include <TestData/TestData.hpp>
 #include <CFXS/Base/Debug.hpp>
 #include <CFXS/CNC/G_Man.hpp>
 #include <CFXS/Platform/CPU.hpp>
 #include <CFXS/Platform/Heap/MemoryManager.hpp>
+#include <CFXS/Base/Time.hpp>
 
 #include <vector>
 #include <exception>
 
+namespace CFXS::Time {
+    volatile Time_t ms = 0;
+}
+
 void main() {
     uint8_t tempStackHeap[1024];
     auto testHeap = CFXS::MemoryManager::CreateHeap("Test Heap 1", sizeof(tempStackHeap), tempStackHeap);
+
+    SysTickIntRegister([]() {
+        CFXS::Time::ms++;
+    });
+    SysTickPeriodSet(CFXS::CPU::GetCyclesPerMicrosecond());
+    SysTickIntEnable();
+    SysTickEnable();
 
     auto gman = testHeap->New<CFXS::CNC::G_Man>();
 
