@@ -58,16 +58,16 @@ SECTIONS
     __CONST_INIT_DATA_START__ = .;
     .data : AT(ADDR(.text) + SIZEOF(.text))
     {
+        . = ALIGN(4) + 0x200; /*0x200 RAM remapped vector table*/
         __DATA_START__ = .;
-        *(vtable)
         *(.data .data* .ram .ram* .gnu.linkonce.d.*)
         __DATA_END__ = .;
+        *(.noinit .noinit*)
     } > SRAM
     
     .bss (NOLOAD):
     {
         . = ALIGN(4);
-        *(.noinit .noinit*)
         __BSS_START__ = .;
         *(.bss*)
         *(COMMON)

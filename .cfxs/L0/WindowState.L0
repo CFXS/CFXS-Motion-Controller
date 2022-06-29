@@ -10,7 +10,7 @@ _temp_TargetDeviceModel=TM4C1294NC
 size=1
 
 [WorkspacePanel]
-expandedEntries=/CFXS_Motion_Controller/src, /CFXS_Motion_Controller/vendor/CFXS-Platform/private, /CFXS_Motion_Controller/vendor/SeggerRTT-printf/src, /build, /.cfxs, /build/CMakeFiles, /CFXS_Motion_Controller/vendor/SeggerRTT-printf/include, /Dev/Segger, /.cfxs/L0, /CFXS_Motion_Controller/vendor/CFXS-Platform/private/Startup, /Dev/Segger/CFXS_Motion_Controller, /CFXS_Motion_Controller, /build/CFXS_Motion_Controller
+expandedEntries=/build/CFXS_Motion_Controller, /CFXS_Motion_Controller/vendor/SeggerRTT-printf/include, /Dev/Segger, /build, /.cfxs, /build/CMakeFiles, /CFXS_Motion_Controller/vendor/CFXS-Platform/private, /.cfxs/L0, /Dev/Segger/CFXS_Motion_Controller, /CFXS_Motion_Controller/vendor/CFXS-Platform/private/Startup, /CFXS_Motion_Controller/src, /CFXS_Motion_Controller/vendor/SeggerRTT-printf/src, /CFXS_Motion_Controller
 scroll_y=0
 version=1
 

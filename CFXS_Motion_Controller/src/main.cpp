@@ -17,84 +17,11 @@
 // ---------------------------------------------------------------------
 // [CFXS] //
 #include <memory>
-#include <driverlib/sysctl.h>
-#include <driverlib/systick.h>
 #include <TestData/TestData.hpp>
 #include <CFXS/Base/Debug.hpp>
-#include <CFXS/CNC/G_Man.hpp>
 #include <CFXS/Platform/CPU.hpp>
 #include <CFXS/Platform/Heap/MemoryManager.hpp>
 #include <CFXS/Base/Time.hpp>
 
-#include <vector>
-#include <exception>
-
-namespace CFXS::Time {
-    volatile Time_t ms = 0;
-}
-
-__used volatile uint64_t s_Loops = 0;
-
 void main() {
-    uint8_t tempStackHeap[1024];
-    auto testHeap = CFXS::MemoryManager::CreateHeap("Test Heap 1", sizeof(tempStackHeap), tempStackHeap);
-
-    SysTickIntRegister([]() {
-        CFXS::Time::ms++;
-    });
-    SysTickPeriodSet(CFXS::CPU::GetCyclesPerMillisecond());
-    SysTickIntEnable();
-    SysTickEnable();
-    CFXS::CPU::EnableInterrupts();
-
-    auto gman = testHeap->New<CFXS::CNC::G_Man>();
-
-    const char* testData = reinterpret_cast<const char*>(res_TestData);
-    char lineTemp[512]; // 512 byte line buffer
-    int lineIndex = 0;
-
-    while (testData) {
-        lineTemp[0] = 0;
-        int chidx;
-        for (chidx = 0; chidx < sizeof(lineTemp) - 1; chidx++) {
-            if (testData[chidx] == '\n') {
-                break;
-            } else if (testData[chidx] == 0) {
-                testData = nullptr;
-                chidx    = 0;
-                break;
-            } else {
-                lineTemp[chidx] = testData[chidx];
-            }
-        }
-
-        if (testData) {
-            testData += chidx + 1; // +1 for \n
-        }
-
-        if (chidx) {
-            lineIndex++;
-            lineTemp[chidx] = 0;
-
-            auto len = strlen(lineTemp);
-            for (int i = 0; i < len; i++) {
-                if (lineTemp[i] == '\r') {
-                    for (int j = i; j < len; j++) {
-                        lineTemp[j] = lineTemp[j + 1];
-                    }
-                    len--;
-                    i--;
-                }
-            }
-
-            auto stat = gman->ProcessCommand(lineTemp, strlen(lineTemp));
-            CFXS_printf(" - %s\n", CFXS::ToString(stat));
-        }
-    }
-
-    testHeap->Delete(gman);
-
-    while (1 < 2) {
-        s_Loops++;
-    }
 }

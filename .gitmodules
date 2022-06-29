@@ -28,3 +28,6 @@
 [submodule "CFXS_Motion_Controller/vendor/CFXS-Platform"]
 	path = CFXS_Motion_Controller/vendor/CFXS-Platform
 	url = https://github.com/CFXS/CFXS-Platform.git
+[submodule "CFXS_Motion_Controller/vendor/lwip"]
+	path = CFXS_Motion_Controller/vendor/lwip
+	url = https://github.com/CFXS/lwip
