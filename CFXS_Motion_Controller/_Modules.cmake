@@ -25,6 +25,12 @@ target_link_libraries(${EXE_NAME} PUBLIC CFXS_CNC)
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/vendor/tm4c-driverlib")
 target_link_libraries(${EXE_NAME} PUBLIC tm4c_driverlib)
 
+# lwip
+add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/vendor/lwip")
+target_include_directories(lwip PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/src/lwip")
+target_include_directories(lwip PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/src/lwip/include")
+target_link_libraries(${EXE_NAME} PUBLIC lwip)
+
 # SeggerRTT
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/vendor/SeggerRTT-printf")
 target_link_libraries(${EXE_NAME} PUBLIC printf_impl_SeggerRTT)
