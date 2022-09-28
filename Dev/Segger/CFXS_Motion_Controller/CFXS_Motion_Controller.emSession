@@ -2,7 +2,8 @@
 <session>
  <Bookmarks/>
  <Breakpoints groups="Breakpoints" active_group="Breakpoints">
-  <Exceptions set="MemManage;UsageFault_Coprocessor;UsageFault_CheckingError;UsageFault_StateError;BusFault;ExceptionEntryReturnFault;HardFault"/>
+  <BreakpointListItem trigger="" line="75" counter="0" hardwareBreakpoint="" isFunctionBreakpoint="false" action="" expression="" group="Breakpoints" type="Breakpoint" state="4" filename="../../../CFXS_Motion_Controller/src/CFXS_Motion_Controller.cpp" useHWbreakpoint="false"/>
+  <Exceptions set="Reset;MemManage;UsageFault_Coprocessor;UsageFault_CheckingError;UsageFault_StateError;BusFault;ExceptionEntryReturnFault;HardFault"/>
  </Breakpoints>
  <ExecutionProfileWindow/>
  <FrameBufferWindow>
@@ -52,13 +53,10 @@
  </TraceWindow>
  <Watch1>
   <Watches active="1" update="Twice a Second">
-   <Watchpoint expression="ms" name="ms" radix="16" linenumber="0" filename="../CFXS_Motion_Controller"/>
-   <Watchpoint expression="s_Loops" name="s_Loops" radix="-1" linenumber="0" filename="../CFXS_Motion_Controller"/>
-   <Watchpoint expression="InitializeModules" name="InitializeModules" radix="-1" linenumber="0" filename="../CFXS_Motion_Controller"/>
-   <Watchpoint expression="e_AppDescriptor" name="e_AppDescriptor" radix="-1" linenumber="0" filename="../CFXS_Motion_Controller"/>
-   <Watchpoint expression="PostInit" name="PostInit" radix="-1" linenumber="0" filename="../CFXS_Motion_Controller"/>
-   <Watchpoint expression="(Task*)0x20000f8c" name="(Task*)0x20000f8c" radix="-1" linenumber="0" filename=""/>
-   <Watchpoint expression="s_TaskGroups" name="s_TaskGroups" radix="-1" linenumber="0" filename=""/>
+   <Watchpoint expression="s_MainHeap" name="s_MainHeap" radix="-1" linenumber="0" filename=""/>
+   <Watchpoint expression="s_MemoryManagerInitialized" name="s_MemoryManagerInitialized" radix="-1" linenumber="0" filename=""/>
+   <Watchpoint expression="&amp;s_MemoryManagerInitialized" name="&amp;s_MemoryManagerInitialized" radix="-1" linenumber="0" filename=""/>
+   <Watchpoint expression="asd" name="asd" radix="10" linenumber="0" filename=""/>
   </Watches>
  </Watch1>
  <Watch2>
@@ -71,23 +69,29 @@
   <Watches active="0" update="Never"/>
  </Watch4>
  <Files>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="67" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/vendor/CFXS-Platform/private/Startup/TM4C129X.cpp" selected="1" top="42" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="67" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/vendor/CFXS-Platform/private/Startup/TM4C129X.cpp" selected="1" top="56" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="35" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/vendor/CFXS-Platform/include/CFXS/Platform/_CPU/TM4C.hpp" selected="0" top="10" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="5" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/vendor/CFXS-Platform/src/Common.cpp" selected="0" top="0" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="5074" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/vendor/CFXS-Platform/src/Heap/dlmalloc.cpp" selected="0" top="5049" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="86" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/vendor/CFXS-Platform/src/Heap/MemoryManager.cpp" selected="0" top="56" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="38" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/vendor/CFXS-Platform/src/Heap/MemoryManager.cpp" selected="0" top="27" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="40" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/vendor/CFXS-Platform/include/CFXS/Platform/_CPU/Cortex_M.hpp" selected="0" top="27" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="12" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/vendor/CFXS-Platform/src/Heap/_Heap.cpp" selected="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="22" y="60" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/vendor/CFXS-Platform/src/Heap/_Heap.cpp" selected="0" top="45" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="600" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/vendor/CFXS-Platform/src/Print/printf.cpp" selected="0" top="587" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="945" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/vendor/SeggerRTT-printf/src/SEGGER_RTT.c" selected="0" top="944" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="186" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/vendor/CFXS-Platform/include/EASTL/allocator.h" selected="0" top="173" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="201" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/vendor/CFXS-Platform/include/EASTL/internal/red_black_tree.h" selected="0" top="188" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="425" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/vendor/CFXS-Platform/include/EASTL/map.h" selected="0" top="415" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="17" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/src/CFXS_Motion_Controller.cpp" selected="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="6" y="65" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/src/CFXS_Motion_Controller.cpp" selected="0" top="61" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="174" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="C:/progra~2/gnuarm~1/102021~1.10/arm-none-eabi/include/c++/10.3.1/new" selected="0" top="149" codecName="Default"/>
   <SessionOpenFile windowGroup="DockEditLeft" x="0" y="104" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/vendor/CFXS-Platform/private/Platform/TM4C_CoreInit.cpp" selected="0" top="69" codecName="Default"/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="87" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/vendor/CFXS-Base/src/Task.cpp" selected="0" top="66" codecName=""/>
-  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="23" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/vendor/CFXS-Base/include/CFXS/Base/Utility.hpp" selected="0" top="0" codecName=""/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="23" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/vendor/CFXS-Base/include/CFXS/Base/Utility.hpp" selected="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="106" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/vendor/CFXS-HW/src/Peripherals/TM4C/GPIO_TM4C.cpp" selected="0" top="81" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="185" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/src/Hardware/LCD.cpp" selected="0" top="160" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="72" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/vendor/CFXS-HW/include/CFXS/HW/Peripherals/GPIO.hpp" selected="0" top="47" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="7" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/vendor/CFXS-Platform/src/CPU/Cortex_M.cpp" selected="0" top="0" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="248" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/vendor/tm4c-driverlib/driverlib/ssi.c" selected="0" top="237" codecName="Default"/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="237" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="../../../CFXS_Motion_Controller/vendor/CFXS-Platform/src/Task.cpp" selected="0" top="225" codecName=""/>
+  <SessionOpenFile windowGroup="DockEditLeft" x="0" y="93" useTextEdit="1" openedFrom="" useBinaryEdit="0" left="0" path="C:/progra~2/gnuarm~1/102021~1.10/arm-none-eabi/include/c++/10.3.1/array" selected="0" top="81" codecName=""/>
  </Files>
  <ARMCrossStudioWindow activeProject="CFXS_Motion_Controller" fileDialogDefaultFilter="*.c" autoConnectTarget="J-Link" buildConfiguration="Debug" sessionSettings="" debugSearchFileMap="" fileDialogInitialDirectory="" debugSearchPath="" autoConnectCapabilities="3711"/>
 </session>

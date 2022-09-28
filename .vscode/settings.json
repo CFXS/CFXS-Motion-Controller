@@ -54,6 +54,19 @@
         "thread": "cpp",
         "cinttypes": "cpp",
         "opt.h": "c",
-        "debug.h": "c"
-    }
+        "debug.h": "c",
+        "ostream": "cpp"
+    },
+    "Lua.diagnostics.globals": [
+        "kB",
+        "MB",
+        "Place",
+        "DefineHidden",
+        "Define",
+        "NO_LOAD",
+        "ARM_ATTRIBUTES",
+        "ReadFile",
+        "WriteFile",
+        "Extend"
+    ]
 }

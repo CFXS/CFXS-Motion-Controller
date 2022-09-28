@@ -21,6 +21,30 @@
             }
         },
         {
+            "label": "LinkerGen Test STM32H753ZITx",
+            "type": "shell",
+            "command": "lua",
+            "args": [
+                "${workspaceRoot}/CMake/Scripts/LinkerGen/LinkerGen.lua",
+                "${workspaceRoot}/CMake/Scripts/LinkerGen",
+                "${workspaceRoot}/CFXS_Motion_Controller/cfg/STM32H753ZITx.lua",
+                "${workspaceRoot}/CFXS_Motion_Controller/cfg/STM32H753ZITx.ld",
+            ],
+            "group": "test"
+        },
+        {
+            "label": "LinkerGen Test TM4C129x",
+            "type": "shell",
+            "command": "lua",
+            "args": [
+                "${workspaceRoot}/CMake/Scripts/LinkerGen/LinkerGen.lua",
+                "${workspaceRoot}/CMake/Scripts/LinkerGen",
+                "${workspaceRoot}/CFXS_Motion_Controller/cfg/TM4C129x.lua",
+                "${workspaceRoot}/CFXS_Motion_Controller/cfg/TM4C129x.ld",
+            ],
+            "group": "test"
+        },
+        {
             "label": "Generate License Headers",
             "type": "shell",
             "command": "py",
