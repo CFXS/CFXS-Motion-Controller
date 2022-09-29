@@ -36,5 +36,11 @@ return {
                 Define("__STACK_START__"),
             }
         },
-    }
+    },
+
+    -- Discard = {
+    --     ["libc.a"] = {},
+    --     ["libm.a"] = {},
+    --     ["libgcc.a"] = {},
+    -- }
 }
