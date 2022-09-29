@@ -23,6 +23,7 @@ return {
         size = 8 * kB
     },
 
+    NoDefaultSections = false,
     Sections = {
         {
             name = "ram_2",

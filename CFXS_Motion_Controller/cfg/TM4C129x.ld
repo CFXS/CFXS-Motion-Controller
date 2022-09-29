@@ -19,9 +19,7 @@ SECTIONS {
     .text : {
         PROVIDE(__TEXT_START__ = .);
         . = ALIGN(4);
-        *(.text .text* .gnu.linkonce.t.*);
-        . = ALIGN(4);
-        *(.glue_7 .glue_7t);
+        *(.text .text* .gnu.linkonce.t.* .glue_7 .glue_7t);
         . = ALIGN(4);
         KEEP(*(.init .fini));
         PROVIDE(__TEXT_END__ = .);
@@ -104,44 +102,35 @@ SECTIONS {
 }
 
 /* Section Range Defines */
-PROVIDE(__CONST_VECTOR_TABLE_START__  = LOADADDR(.vector_table));
-PROVIDE(__CONST_VECTOR_TABLE_END__    = LOADADDR(.vector_table) + SIZEOF(.vector_table));
-PROVIDE(__CONST_VECTOR_TABLE_SIZE__   = SIZEOF(.vector_table));
-PROVIDE(__CONST_TEXT_START__          = LOADADDR(.text));
-PROVIDE(__CONST_TEXT_END__            = LOADADDR(.text) + SIZEOF(.text));
-PROVIDE(__CONST_TEXT_SIZE__           = SIZEOF(.text));
-PROVIDE(__CONST_RODATA_START__        = LOADADDR(.rodata));
-PROVIDE(__CONST_RODATA_END__          = LOADADDR(.rodata) + SIZEOF(.rodata));
-PROVIDE(__CONST_RODATA_SIZE__         = SIZEOF(.rodata));
-PROVIDE(__CONST_ARM_START__           = LOADADDR(.ARM));
-PROVIDE(__CONST_ARM_END__             = LOADADDR(.ARM) + SIZEOF(.ARM));
-PROVIDE(__CONST_ARM_SIZE__            = SIZEOF(.ARM));
+PROVIDE(__CONST_VECTOR_TABLE_START__ = LOADADDR(.vector_table));
+PROVIDE(__CONST_VECTOR_TABLE_END__ = LOADADDR(.vector_table) + SIZEOF(.vector_table));
+PROVIDE(__CONST_VECTOR_TABLE_SIZE__ = SIZEOF(.vector_table));
+PROVIDE(__CONST_TEXT_START__ = LOADADDR(.text));
+PROVIDE(__CONST_TEXT_END__ = LOADADDR(.text) + SIZEOF(.text));
+PROVIDE(__CONST_TEXT_SIZE__ = SIZEOF(.text));
+PROVIDE(__CONST_RODATA_START__ = LOADADDR(.rodata));
+PROVIDE(__CONST_RODATA_END__ = LOADADDR(.rodata) + SIZEOF(.rodata));
+PROVIDE(__CONST_RODATA_SIZE__ = SIZEOF(.rodata));
+PROVIDE(__CONST_ARM_START__ = LOADADDR(.ARM));
+PROVIDE(__CONST_ARM_END__ = LOADADDR(.ARM) + SIZEOF(.ARM));
+PROVIDE(__CONST_ARM_SIZE__ = SIZEOF(.ARM));
 PROVIDE(__CONST_PREINIT_ARRAY_START__ = LOADADDR(.preinit_array));
-PROVIDE(__CONST_PREINIT_ARRAY_END__   = LOADADDR(.preinit_array) + SIZEOF(.preinit_array));
-PROVIDE(__CONST_PREINIT_ARRAY_SIZE__  = SIZEOF(.preinit_array));
-PROVIDE(__CONST_INIT_ARRAY_START__    = LOADADDR(.init_array));
-PROVIDE(__CONST_INIT_ARRAY_END__      = LOADADDR(.init_array) + SIZEOF(.init_array));
-PROVIDE(__CONST_INIT_ARRAY_SIZE__     = SIZEOF(.init_array));
-PROVIDE(__CONST_FINI_ARRAY_START__    = LOADADDR(.fini_array));
-PROVIDE(__CONST_FINI_ARRAY_END__      = LOADADDR(.fini_array) + SIZEOF(.fini_array));
-PROVIDE(__CONST_FINI_ARRAY_SIZE__     = SIZEOF(.fini_array));
-PROVIDE(__CONST_DATA_START__          = LOADADDR(.data));
-PROVIDE(__CONST_DATA_END__            = LOADADDR(.data) + SIZEOF(.data));
-PROVIDE(__CONST_DATA_SIZE__           = SIZEOF(.data));
-PROVIDE(__CONST_HEAP_START__          = LOADADDR(.heap));
-PROVIDE(__CONST_HEAP_END__            = LOADADDR(.heap) + SIZEOF(.heap));
-PROVIDE(__CONST_HEAP_SIZE__           = SIZEOF(.heap));
-PROVIDE(__CONST_STACK_START__         = LOADADDR(.stack));
-PROVIDE(__CONST_STACK_END__           = LOADADDR(.stack) + SIZEOF(.stack));
-PROVIDE(__CONST_STACK_SIZE__          = SIZEOF(.stack));
-PROVIDE(__CONST_BSS_START__           = LOADADDR(.bss));
-PROVIDE(__CONST_BSS_END__             = LOADADDR(.bss) + SIZEOF(.bss));
-PROVIDE(__CONST_BSS_SIZE__            = SIZEOF(.bss));
+PROVIDE(__CONST_PREINIT_ARRAY_END__ = LOADADDR(.preinit_array) + SIZEOF(.preinit_array));
+PROVIDE(__CONST_PREINIT_ARRAY_SIZE__ = SIZEOF(.preinit_array));
+PROVIDE(__CONST_INIT_ARRAY_START__ = LOADADDR(.init_array));
+PROVIDE(__CONST_INIT_ARRAY_END__ = LOADADDR(.init_array) + SIZEOF(.init_array));
+PROVIDE(__CONST_INIT_ARRAY_SIZE__ = SIZEOF(.init_array));
+PROVIDE(__CONST_FINI_ARRAY_START__ = LOADADDR(.fini_array));
+PROVIDE(__CONST_FINI_ARRAY_END__ = LOADADDR(.fini_array) + SIZEOF(.fini_array));
+PROVIDE(__CONST_FINI_ARRAY_SIZE__ = SIZEOF(.fini_array));
+PROVIDE(__CONST_DATA_START__ = LOADADDR(.data));
+PROVIDE(__CONST_DATA_END__ = LOADADDR(.data) + SIZEOF(.data));
+PROVIDE(__CONST_DATA_SIZE__ = SIZEOF(.data));
 
 /* Memory Region Range Defines */
 PROVIDE(__REGION_FLASH_START__ = ORIGIN(FLASH));
-PROVIDE(__REGION_FLASH_END__   = ORIGIN(FLASH) + LENGTH(FLASH));
-PROVIDE(__REGION_FLASH_SIZE__  = LENGTH(FLASH));
-PROVIDE(__REGION_RAM_START__   = ORIGIN(RAM));
-PROVIDE(__REGION_RAM_END__     = ORIGIN(RAM) + LENGTH(RAM));
-PROVIDE(__REGION_RAM_SIZE__    = LENGTH(RAM));
+PROVIDE(__REGION_FLASH_END__ = ORIGIN(FLASH) + LENGTH(FLASH));
+PROVIDE(__REGION_FLASH_SIZE__ = LENGTH(FLASH));
+PROVIDE(__REGION_RAM_START__ = ORIGIN(RAM));
+PROVIDE(__REGION_RAM_END__ = ORIGIN(RAM) + LENGTH(RAM));
+PROVIDE(__REGION_RAM_SIZE__ = LENGTH(RAM));
